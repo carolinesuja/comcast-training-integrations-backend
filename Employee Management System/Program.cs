@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
+// Parent Class
 class Employee
 {
     // Fields 
