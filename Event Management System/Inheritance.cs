@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Xml.Linq;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Event_Management_System
 {
