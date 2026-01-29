@@ -12,7 +12,7 @@ namespace Event_Management_System
         public void AddEvent(Event e)
         {
             events.Add(e);
-            Console.WriteLine("Event Added Suiccessfully.");
+            Console.WriteLine("Event Added Successfully.");
         }
 
         public void ViewAllEvents()
