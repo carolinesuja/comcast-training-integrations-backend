@@ -1,5 +1,6 @@
 ﻿using System;
 
+
 namespace Event_Management_System
 {
     class WeddingEvent : Event
