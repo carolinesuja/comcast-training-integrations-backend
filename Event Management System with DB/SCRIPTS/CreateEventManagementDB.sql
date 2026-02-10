@@ -1,7 +1,7 @@
-//creating a db
+-- creating a db
 CREATE DATABASE EventManagementDB;
 
-//creating a table in that db
+-- creating a table in that db
 CREATE TABLE Events
 (
     EventId INT PRIMARY KEY,
