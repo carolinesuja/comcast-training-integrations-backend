@@ -208,7 +208,7 @@ namespace Event_Management_System
                 //string query = "DELETE FROM Events WHERE EventId=@Id";
                 
                 // executes query , links query with connection
-                SqlCommand cmd = new SqlCommand("DeleteEvent", con);
+                SqlCommand cmd = new SqlCommand("DeleteEvent", con); // name of the stored procedure
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
                 // maps C# values to SQL parameters
