@@ -64,12 +64,13 @@ namespace Event_Management_System
             // using - automatically closes connection
             using (SqlConnection con = new SqlConnection(connectionString))  
             {
-                // parameterised query
-                string query = @"INSERT INTO Events
-                                VALUES (@Id,@Name,@Location,@Date,@Cost,@Guests,@Type)";
+                // parameterised query ado.net
+                //string query = @"INSERT INTO Events
+                //                VALUES (@Id,@Name,@Location,@Date,@Cost,@Guests,@Type)";
                 
                 // executes query , links query with connection
-                SqlCommand cmd = new SqlCommand(query, con);
+                SqlCommand cmd = new SqlCommand("AddEvent", con); // name of the stored procedure
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
                 // maps C# values to SQL parameters
                 cmd.Parameters.AddWithValue("@Id", e.EventId);
@@ -96,10 +97,12 @@ namespace Event_Management_System
             // using - automatically closes connection
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                string query = "SELECT * FROM Events";
+                // query ado.net
+                //string query = "SELECT * FROM Events";
 
                 // executes query , links query with connection
-                SqlCommand cmd = new SqlCommand(query, con);
+                SqlCommand cmd = new SqlCommand("GetAllEvents", con); // name of the stored procedure
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
                 // opens DB connection
                 con.Open();
@@ -134,10 +137,12 @@ namespace Event_Management_System
             // using - automatically closes connection
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                // parameterised query
-                string query = "SELECT * FROM Events WHERE EventType=@Type";
+                // parameterised query ado.net
+                //string query = "SELECT * FROM Events WHERE EventType=@Type";
+
                 // executes query , links query with connection
-                SqlCommand cmd = new SqlCommand(query, con);
+                SqlCommand cmd = new SqlCommand("GetEventsByType", con); // name of the stored procedure
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Type", type);
 
                 // opens DB connection
@@ -172,10 +177,12 @@ namespace Event_Management_System
             // using - automatically closes connection
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                // parameterised query
-                string query = "UPDATE Events SET Cost=@Cost WHERE EventId=@Id";
+                // parameterised query ado.net
+                //string query = "UPDATE Events SET Cost=@Cost WHERE EventId=@Id";
+                
                 // executes query , links query with connection
-                SqlCommand cmd = new SqlCommand(query, con);
+                SqlCommand cmd = new SqlCommand("UpdateEventCost", con); // name of the stored procedure
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
                 // maps C# values to SQL parameters
                 cmd.Parameters.AddWithValue("@Cost", cost);
@@ -197,10 +204,13 @@ namespace Event_Management_System
             // using - automatically closes connection
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                // parameterised query
-                string query = "DELETE FROM Events WHERE EventId=@Id";
+                // parameterised query ado.net
+                //string query = "DELETE FROM Events WHERE EventId=@Id";
+                
                 // executes query , links query with connection
-                SqlCommand cmd = new SqlCommand(query, con);
+                SqlCommand cmd = new SqlCommand("DeleteEvent", con);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
                 // maps C# values to SQL parameters
                 cmd.Parameters.AddWithValue("@Id", id);
 
